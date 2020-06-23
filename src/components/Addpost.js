@@ -6,14 +6,6 @@ export default class Addpost extends Component {
     this.state = { name: "", info: "", backGroundColor: "white" };
   }
 
-//   Addname = (e) => {
-//     this.setState({ name: e.target.value });
-//   };
-
-//   Addinfo = (e) => {
-//     this.setState({ info: e.target.value });
-//   };
-
   validName = (e) => {
     if (e.target.value == "Orgad") {
       this.setState({ name: e.target.value, backGroundColor: "green" });

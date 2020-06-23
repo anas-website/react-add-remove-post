@@ -9,11 +9,11 @@ export default class Post extends Component {
 
 
     render() {
-        console.log('rendered');
+        
         
         return (
             <div style={{backgroundColor:'gray' ,width:'800px' ,height:'150px'  ,margin:'auto',}} >
-        
+     
             <h2  >title:{this.props.name} </h2>   
             <h3  >info:{this.props.info} </h3>  
             <button onClick={ ()=>this.props.del(this.state.index)} style={{color:'red'} }>x</button> 
