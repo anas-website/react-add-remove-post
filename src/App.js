@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import React, { Component } from 'react'
+import Post from './components/Post';
+import Addpost from './components/Addpost';
+
+export default class App extends Component {
+
+    state= {post:[ {name:'a' ,info:'aa...'},{name:'b' ,info:'bb...'}, {name:'c' ,info:'cc...'}]}
+
+
+Addpost=(n,i)=>{
+  this.setState({post: [{name:n,info:i} ,...this.state.post]})
 }
 
-export default App;
+deletePost=(i)=>{
+let tempPost=this.state.post.filter((element,index)=>(index!=i))
+
+  this.setState({post:tempPost})
+}
+  render() {
+    
+    return (
+      <div className="App">
+<Addpost Add={this.Addpost}/>
+    {this.state.post.map((item,i)=>{
+      return <Post key={i} name={item.name} info={item.info} del={this.deletePost} index={i}/>
+    })}
+      </div>
+    )
+  }
+}
